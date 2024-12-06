@@ -26,7 +26,7 @@ function useClickOutside<T extends HTMLElement>(
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent): void => {
       const target = event.target as HTMLElement;
-      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- don't know how to fix this
+       
       if (ref.current && !ref.current.contains(target)) {
         handler();
       }
@@ -195,7 +195,7 @@ export function ScaleUpForm({
   const { note, closeScaleUp } = useScaleUp();
 
   const handleSubmit = (e: React.FormEvent): void => {
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk
+     
     e.preventDefault();
     onSubmit?.(note);
     closeScaleUp();
