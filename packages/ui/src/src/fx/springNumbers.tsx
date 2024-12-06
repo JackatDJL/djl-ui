@@ -3,9 +3,8 @@
 import { useEffect } from "react";
 import type { MotionValue} from "framer-motion";
 import { motion, useSpring, useTransform } from "framer-motion";
-import { DefaultText } from ">util/className";
+import { cldText } from ">util/classnames";
 
-// need to add smth because vercel git integration is not working
 interface AnimatedNumberProps {
   value: number;
   mass?: number;
@@ -45,7 +44,7 @@ export function Custom({
     return () => { unsubscribe(); };
   }, [spring, value, onAnimationStart, onAnimationComplete]);
 
-  return <motion.span className={DefaultText}>{display}</motion.span>;
+  return <motion.span className={cldText}>{display}</motion.span>;
 }
 
 export function SpringNumbers({

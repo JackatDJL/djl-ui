@@ -5,18 +5,17 @@
 // Docs for dis: https://ui.aceternity.com/components/focus-cards
 
 import Image from "next/image";
-import React, { useState } from "react";
+import { memo, useState } from "react";
 import { cn } from ">util/twm";
 import Link from "next/link";
 
-export const Card = React.memo(
+export const Card = memo(
   ({
     card,
     index,
     hovered,
     setHovered,
   }: {
-     
     card: Card;
     index: number;
     hovered: number | null;
@@ -27,8 +26,12 @@ export const Card = React.memo(
         "rounded-lg relative bg-gray-100 dark:bg-neutral-900 overflow-hidden h-60 md:h-96 w-full transition-all duration-300 ease-out",
         hovered !== null && hovered !== index && "blur-sm scale-[0.98]"
       )}
-      onMouseEnter={() => { setHovered(index); }}
-      onMouseLeave={() => { setHovered(null); }}
+      onMouseEnter={() => {
+        setHovered(index);
+      }}
+      onMouseLeave={() => {
+        setHovered(null);
+      }}
     >
       <Link href={card.href} prefetch={card.prefetch}>
         <Image

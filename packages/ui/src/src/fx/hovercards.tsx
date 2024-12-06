@@ -48,9 +48,13 @@ export const HoverEffect = ({
           className="relative group  block p-2 h-full w-full"
           href={item.href || "#"}
           id={item.title}
-          key={item.title || generateRandomInt()}
-          onMouseEnter={() => { setHoveredIndex(idx); }}
-          onMouseLeave={() => { setHoveredIndex(null); }}
+          key={item.title ?? generateRandomInt()}
+          onMouseEnter={() => {
+            setHoveredIndex(idx);
+          }}
+          onMouseLeave={() => {
+            setHoveredIndex(null);
+          }}
         >
           <AnimatePresence>
             {hoveredIndex === idx && (
@@ -65,7 +69,7 @@ export const HoverEffect = ({
                   transition: { duration: 0.15, delay: 0.2 },
                 }}
                 initial={{ opacity: 0 }}
-                key={`${item.title  }span` || generateRandomInt()}
+                key={item.title ? `${item.title}span` : generateRandomInt()}
                 layoutId="hoverBackground"
               />
             )}
@@ -73,16 +77,18 @@ export const HoverEffect = ({
           <Card
             bg={item.bg}
             forewardkey={item.title}
-            key={`card${  item.title}` || generateRandomInt()}
+            key={item.title ? `card${item.title}` : generateRandomInt()}
           >
-            {item.title ? <CardTitle key={`title${  item.title}` || generateRandomInt()}>
+            {item.title ? (
+              <CardTitle key={item.title ?? generateRandomInt()}>
                 {item.title}
-              </CardTitle> : null}
-            {item.description ? <CardDescription
-                key={`desc${  item.title}` || generateRandomInt()}
-              >
+              </CardTitle>
+            ) : null}
+            {item.description ? (
+              <CardDescription key={item.description ?? generateRandomInt()}>
                 {item.description}
-              </CardDescription> : null}
+              </CardDescription>
+            ) : null}
           </Card>
         </Link>
       ))}
@@ -109,13 +115,15 @@ export const Card = ({
       )}
       key={`${forewardkey}hoverfxwrapper`}
     >
-      {bg ? <Image
+      {bg ? (
+        <Image
           alt={bg || "default image"}
           height={250}
           key={`${forewardkey}hoverfximage`}
           src={bg || "/default-image.jpg"}
           width={250}
-        /> : null}
+        />
+      ) : null}
       <div className="relative z-50">
         <div className="p-2">{children}</div>
       </div>
