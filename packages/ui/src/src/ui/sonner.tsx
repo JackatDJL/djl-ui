@@ -2,7 +2,6 @@
 
 import { Toaster as Sonner } from "sonner";
 
-// need to add smth because vercel git integration is not working
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {

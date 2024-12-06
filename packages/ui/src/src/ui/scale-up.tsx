@@ -1,7 +1,5 @@
 "use client";
 
-// need to add smth because vercel git integration is not working
-
 import React, {
   createContext,
   useContext,
@@ -170,9 +168,9 @@ export function ScaleUpContent({
           ref={formContainerRef}
           style={{
             borderRadius: 12,
-            top: "auto", // Remove any top positioning
-            left: "auto", // Remove any left positioning
-            transform: "none", // Remove any transform
+            top: "auto", 
+            left: "auto",
+            transform: "none",
           }}
         >
           {header ? <ScaleUpHeader>{header}</ScaleUpHeader> : null}
@@ -346,7 +344,6 @@ export function ScaleUpBody({
   return <div className={cn("p-4", className)}>{children}</div>;
 }
 
-// New component: ScaleUpButton
 export function ScaleUpButton({
   children,
   onClick,

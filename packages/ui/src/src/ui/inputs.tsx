@@ -27,7 +27,6 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
 );
 Input.displayName = "Input";
 
-// need to add smth because vercel git integration is not working
 const PasswordInput = forwardRef<HTMLInputElement, InputProps>(
   ({ className, ...props }, ref) => {
     const [showPassword, setShowPassword] = useState(false);

@@ -6,7 +6,6 @@ import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
 import { Circle } from "react-feather";
 
 import { cn } from ">util/twm";
-// need to add smth because vercel git integration is not working
 
 const RadioGroup = React.forwardRef<
   React.ElementRef<typeof RadioGroupPrimitive.Root>,

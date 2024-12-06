@@ -6,7 +6,6 @@ import * as RawDialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "react-feather";
 
 import { cn } from ">util/twm";
-// need to add smth because vercel git integration is not working
 import { Button } from ">/button";
 
 // ALERT DIALOG

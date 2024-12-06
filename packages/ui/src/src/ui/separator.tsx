@@ -1,6 +1,4 @@
 "use client";
-
-// need to add smth because vercel git integration is not working
  
 import * as React from "react";
 import * as SeparatorPrimitive from "@radix-ui/react-separator";

@@ -15,7 +15,6 @@ function useDimensions(ref: RefObject<HTMLElement>, options = { debounce: 0 }) {
   return dimensions;
 }
 
-// need to add smth because vercel git integration is not working
 function Skeleton({
   className,
   children,

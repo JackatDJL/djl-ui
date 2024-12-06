@@ -1,13 +1,12 @@
 "use client";
 
- 
 // need to add smth because vercel git integration is not working
 import * as React from "react";
 import * as LabelPrimitive from "@radix-ui/react-label";
 import { cva, type VariantProps } from "cva";
 
 import { cn } from ">util/twm";
-import { DefaultText } from ">util/className";
+import { cldText } from ">util/classnames";
 
 const labelVariants = cva({
   base: "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
@@ -19,7 +18,7 @@ const Label = React.forwardRef<
     VariantProps<typeof labelVariants>
 >(({ className, ...props }, ref) => (
   <LabelPrimitive.Root
-    className={cn(DefaultText, labelVariants(), className)}
+    className={cn(cldText, labelVariants(), className)}
     ref={ref}
     {...props}
   />

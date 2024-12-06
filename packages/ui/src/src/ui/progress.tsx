@@ -4,7 +4,6 @@ import * as React from "react";
 import * as ProgressPrimitive from "@radix-ui/react-progress";
 
 import { cn } from ">util/twm";
-// need to add smth because vercel git integration is not working
 
 interface ProgressProps
   extends Omit<
@@ -13,7 +12,7 @@ interface ProgressProps
   > {
   color?: Record<number, string>;
   bg?: string;
-  value: number; // Stelle sicher, dass value ein number ist
+  value: number;
 }
 
 const Progress = React.forwardRef<
@@ -23,7 +22,7 @@ const Progress = React.forwardRef<
   const colorClasses = React.useMemo(() => {
     if (!color) return "bg-primary duration-700";
 
-    const colorMap = color as Record<number, string>;
+    const colorMap = color;
     const sortedKeys = Object.keys(colorMap)
       .map((key): number => Number(key))
       .sort((a, b) => a - b);

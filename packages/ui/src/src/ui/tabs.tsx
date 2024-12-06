@@ -1,5 +1,4 @@
 "use client";
-// need to add smth because vercel git integration is not working
 
 import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
@@ -8,7 +7,7 @@ import useMeasure from "react-use-measure";
 
 import { cn } from ">util/twm";
 import { Wrapper } from ">/custom-card";
-import { DefaultText } from ">util/className";
+import { cldText } from ">util/classnames";
 
 // Direction Aware Tabs
 interface Tab {
@@ -84,7 +83,7 @@ function CustomDirectionAwareTabs({
         {tabs.map((tab) => (
           <button
             className={cn(
-              DefaultText,
+              cldText,
               "relative rounded-full px-3.5 py-1.5 text-xs sm:text-sm font-medium  transition focus-visible:outline-1 focus-visible:ring-1  focus-visible:outline-none flex gap-2 items-center ",
               activeTab === tab.id
                 ? "text-white"
@@ -113,7 +112,6 @@ function CustomDirectionAwareTabs({
       </div>
       <MotionConfig transition={{ duration: 0.4, type: "spring", bounce: 0.2 }}>
         <motion.div
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           animate={{ height: bounds.height }}
           className="relative mx-auto w-full h-full overflow-hidden"
           initial={false}

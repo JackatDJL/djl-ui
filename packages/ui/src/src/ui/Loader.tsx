@@ -68,179 +68,135 @@ const Loader: React.FC<LoaderProps> = ({
     void import("ldrs").then((ldr) => {
       switch (type) {
         case "ring":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.ring.register();
           break;
         case "ring2":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.ring2.register();
           break;
         case "tailSpin":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.tailspin.register();
           break;
         case "lineSpinner":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.lineSpinner.register();
           break;
         case "squircle":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.squircle.register();
           break;
         case "square":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.square.register();
           break;
         case "reuleaux":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.reuleaux.register();
           break;
         case "tailChase":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.tailChase.register();
           break;
         case "dotSpinner":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.dotSpinner.register();
           break;
         case "spiral":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.spiral.register();
           break;
         case "bouncy":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.bouncy.register();
           break;
         case "treadmill":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.treadmill.register();
           break;
         case "bouncyArc":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.bouncyArc.register();
           break;
         case "waveform":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.waveform.register();
           break;
         case "hatch":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.hatch.register();
           break;
         case "hourglass":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.hourglass.register();
           break;
         case "zoomies":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.zoomies.register();
           break;
         case "lineWobble":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.lineWobble.register();
           break;
         case "infinity":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.infinity.register();
           break;
         case "trefoil":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.trefoil.register();
           break;
         case "cardio":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.cardio.register();
           break;
         case "helix":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.helix.register();
           break;
         case "grid":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.grid.register();
           break;
         case "quantum":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.quantum.register();
           break;
         case "wobble":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.wobble.register();
           break;
         case "orbit":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.orbit.register();
           break;
         case "chaoticOrbit":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.chaoticOrbit.register();
           break;
         case "superballs":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.superballs.register();
           break;
         case "trio":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.trio.register();
           break;
         case "momentum":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.momentum.register();
           break;
         case "dotWave":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.dotWave.register();
           break;
         case "leapfrog":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.leapfrog.register();
           break;
         case "newton": // 's cradle
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.newtonsCradle.register();
           break;
         case "dotStream":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.dotStream.register();
           break;
         case "dotPulse":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.dotPulse.register();
           break;
         case "metronome":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.metronome.register();
           break;
         case "jelly":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.jelly.register();
           break;
         case "jellyTriangle":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.jellyTriangle.register();
           break;
         case "mirage":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.mirage.register();
           break;
         case "ping":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.ping.register();
           break;
         case "pulsar":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.pulsar.register();
           break;
         case "ripples":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.ripples.register();
           break;
         case "miyagi":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.miyagi.register();
           break;
         case "pinwheel":
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- idk it works
           ldr.pinwheel.register();
           break;
       }

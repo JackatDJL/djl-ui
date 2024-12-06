@@ -1,12 +1,10 @@
 "use client";
 
- 
-// need to add smth because vercel git integration is not working
 import * as React from "react";
 import * as RawTooltipPrimitive from "@radix-ui/react-tooltip";
 
 import { cn } from ">util/twm";
-import { DefaultText } from ">util/className";
+import { cldText } from ">util/classnames";
 
 const RawTooltipProvider = RawTooltipPrimitive.Provider;
 
@@ -39,7 +37,7 @@ const Tooltip = React.forwardRef<
 >(({ children, tips, ...props }, ref) => (
   <RawTooltipProvider>
     <RawTooltip>
-      <RawTooltipTrigger className={DefaultText}>{children}</RawTooltipTrigger>
+      <RawTooltipTrigger className={cldText}>{children}</RawTooltipTrigger>
       <RawTooltipContent {...props} ref={ref}>
         {tips}
       </RawTooltipContent>

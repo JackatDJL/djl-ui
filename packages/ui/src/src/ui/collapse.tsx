@@ -6,7 +6,6 @@ import { ChevronDown } from "react-feather";
 
 import { cn } from ">util/twm";
 
-// need to add smth because vercel git integration is not working
 interface CGroupProps {
   title?: string;
   children?: React.ReactNode;

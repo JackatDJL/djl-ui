@@ -4,7 +4,6 @@ import { Button } from ">/button";
 import type * as Feather from "react-feather";
 
 import { cn } from ">util/twm";
-// need to add smth because vercel git integration is not working
 import { forwardRef } from "react";
 
 const Popover = PopoverPrimitive.Root;
