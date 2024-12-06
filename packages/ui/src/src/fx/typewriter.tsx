@@ -1,10 +1,8 @@
- 
 "use client";
-// need to add smth because vercel git integration is not working
 
 import { useEffect, useState } from "react";
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
-import { DefaultText } from ">util/className";
+import { cldText } from ">util/classnames";
 import { cn } from ">util/twm";
 
 export interface ITypewriterProps {
@@ -27,7 +25,9 @@ export function Typewriter({ delay, texts, baseText = "" }: ITypewriterProps) {
       delay,
       duration: 1,
       ease: "easeInOut",
-      onComplete: () => { setAnimationComplete(true); },
+      onComplete: () => {
+        setAnimationComplete(true);
+      },
     });
     return () => {
       controls.stop && controls.stop();
@@ -35,9 +35,11 @@ export function Typewriter({ delay, texts, baseText = "" }: ITypewriterProps) {
   }, [count, baseText.length, delay]);
 
   return (
-    <span className={DefaultText}>
+    <span className={cldText}>
       <motion.span>{displayText}</motion.span>
-      {animationComplete ? <RepeatedTextAnimation delay={delay + 1} texts={texts} /> : null}
+      {animationComplete ? (
+        <RepeatedTextAnimation delay={delay + 1} texts={texts} />
+      ) : null}
       <BlinkingCursor />
     </span>
   );
@@ -95,9 +97,7 @@ function RepeatedTextAnimation({
   }, [count, delay, textIndex, texts, updatedThisRound]);
 
   return (
-    <motion.span className={cn(DefaultText, "inline")}>
-      {displayText}
-    </motion.span>
+    <motion.span className={cn(cldText, "inline")}>{displayText}</motion.span>
   );
 }
 

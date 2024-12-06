@@ -2,7 +2,7 @@
 
 // Credits: https://ui.aceternity.com/
 
-import React from "react";
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { cn } from ">util/twm";
 
@@ -35,18 +35,20 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
       }}
       {...rest}
     >
-      {rows.map((_, i) => (
+      {rows.map((_row, i) => (
         <motion.div
           className="w-16 h-8  border-l  border-slate-700 relative"
-          key={`row${  i}`}
+          // eslint-disable-next-line react/no-array-index-key -- unique key
+          key={`row-${i}`}
         >
-          {cols.map((_, j) => (
+          {cols.map((_col, j) => (
             <motion.div
               animate={{
                 transition: { duration: 2 },
               }}
               className="w-16 h-8  border-r border-t border-slate-700 relative"
-              key={`col${  j}`}
+              // eslint-disable-next-line react/no-array-index-key -- unique key
+              key={`col-${j}`}
               whileHover={{
                 backgroundColor: `var(${getRandomColor()})`,
                 transition: { duration: 0 },
@@ -76,4 +78,4 @@ export const BoxesCore = ({ className, ...rest }: { className?: string }) => {
   );
 };
 
-export const Boxes = React.memo(BoxesCore);
+export const Boxes = memo(BoxesCore);

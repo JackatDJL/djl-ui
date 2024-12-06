@@ -1,6 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client";
-// need to add smth because vercel git integration is not working
 
 import type { FC} from "react";
 import { useRef } from "react";
@@ -11,7 +9,7 @@ import {
   useAnimation,
   useInView,
 } from "framer-motion";
-import { DefaultText } from ">util/className";
+import { cldText } from ">util/classnames";
 import { cn } from ">util/twm";
 
 type AnimationType =
@@ -235,7 +233,7 @@ const TextAnimate: FC<Props> = ({
 
   if (type === "rollIn" || type === "whipIn") {
     return (
-      <h2 className={cn([DefaultText, className])}>
+      <h2 className={cn([cldText, className])}>
         {text.split(" ").map((word, index) => {
           return (
             <motion.span
@@ -275,7 +273,7 @@ const TextAnimate: FC<Props> = ({
   return (
     <motion.h2
       animate="visible"
-      className={cn([DefaultText, className])}
+      className={cn([cldText, className])}
       initial="hidden"
       role="heading"
       style={{ display: "flex", overflow: "hidden" }}
