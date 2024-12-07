@@ -5,13 +5,13 @@ import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { cldText } from ">util/classnames";
 import { cn } from ">util/twm";
 
-export interface ITypewriterProps {
+export interface TypewriterProps {
   delay: number;
   texts: string[];
   baseText?: string;
 }
 
-export function Typewriter({ delay, texts, baseText = "" }: ITypewriterProps) {
+export function Typewriter({ delay, texts, baseText = "" }: TypewriterProps) {
   const [animationComplete, setAnimationComplete] = useState(false);
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
@@ -30,7 +30,7 @@ export function Typewriter({ delay, texts, baseText = "" }: ITypewriterProps) {
       },
     });
     return () => {
-      controls.stop && controls.stop();
+      controls.stop();
     };
   }, [count, baseText.length, delay]);
 
@@ -45,24 +45,24 @@ export function Typewriter({ delay, texts, baseText = "" }: ITypewriterProps) {
   );
 }
 
-export interface IRepeatedTextAnimationProps {
+export interface RepeatedTextAnimationProps {
   delay: number;
   texts: string[];
 }
 
 const defaultTexts = [
-  "quiz page with questions and answers",
-  "blog Article Details Page Layout",
-  "ecommerce dashboard with a sidebar",
-  "ui like platform.openai.com....",
-  "buttttton",
-  "aop that tracks non-standard split sleep cycles",
-  "transparent card to showcase achievements of a user",
+  "need to add Texts",
+  "todo: add texts",
+  "i forgot to add texts",
+  "how about adding some texts",
+  "i was too lazy to add texts",
+  "i am not sure why i am doing this",
+  "this is getting out of hand",
 ];
 function RepeatedTextAnimation({
   delay,
   texts = defaultTexts,
-}: IRepeatedTextAnimationProps) {
+}: RepeatedTextAnimationProps) {
   const textIndex = useMotionValue(0);
 
   const baseText = useTransform(textIndex, (latest) => texts[latest] || "");
@@ -92,7 +92,7 @@ function RepeatedTextAnimation({
       },
     });
     return () => {
-      animation.stop && animation.stop();
+      animation.stop();
     };
   }, [count, delay, textIndex, texts, updatedThisRound]);
 

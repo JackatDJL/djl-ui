@@ -1,8 +1,13 @@
 "use client";
-import React, { useId , useEffect, useState } from "react";
+import { useId, useEffect, useState } from "react";
 
-import Particles, { initParticlesEngine } from "@tsparticles/react";
-import type { Container, SingleOrMultiple } from "@tsparticles/engine";
+import { default as Particles, initParticlesEngine } from "@tsparticles/react";
+import type {
+  Container,
+  IResizeEvent,
+  RecursivePartial,
+  SingleOrMultiple,
+} from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { cn } from ">util/twm";
 import { motion, useAnimation } from "framer-motion";
@@ -31,17 +36,22 @@ export const SparklesCore = (props: ParticlesProps) => {
   } = props;
   const [init, setInit] = useState(false);
   useEffect(() => {
-    initParticlesEngine(async (engine) => {
-      await loadSlim(engine);
-    }).then(() => {
+    const initEngine = async () => {
+      await initParticlesEngine(async (engine) => {
+        await loadSlim(engine);
+      });
       setInit(true);
+    };
+
+    initEngine().catch(() => {
+      throw new Error("Failed to initialize particles engine");
     });
   }, []);
   const controls = useAnimation();
 
   const particlesLoaded = async (container?: Container) => {
     if (container) {
-      controls.start({
+      await controls.start({
         opacity: 1,
         transition: {
           duration: 1,
@@ -53,7 +63,8 @@ export const SparklesCore = (props: ParticlesProps) => {
   const generatedId = useId();
   return (
     <motion.div animate={controls} className={cn("opacity-0", className)}>
-      {init ? <Particles
+      {init ? (
+        <Particles
           className={cn("h-full w-full")}
           id={id || generatedId}
           options={{
@@ -78,8 +89,8 @@ export const SparklesCore = (props: ParticlesProps) => {
                   enable: false,
                   mode: "repulse",
                 },
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
-                resize: true as any,
+
+                resize: true as unknown as RecursivePartial<IResizeEvent>,
               },
               modes: {
                 push: {
@@ -427,7 +438,8 @@ export const SparklesCore = (props: ParticlesProps) => {
             detectRetina: true,
           }}
           particlesLoaded={particlesLoaded}
-        /> : null}
+        />
+      ) : null}
     </motion.div>
   );
 };

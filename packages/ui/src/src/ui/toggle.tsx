@@ -64,7 +64,7 @@ const ToggleGroup = React.forwardRef<
   </ToggleGroupPrimitive.Root>
 ));
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- Should be inferred by the import
+ 
 ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
 
 const ToggleGroupItem = React.forwardRef<
@@ -89,7 +89,7 @@ const ToggleGroupItem = React.forwardRef<
   );
 });
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- Should be inferred by the import
+ 
 ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
 
 export { ToggleGroup as Group, ToggleGroupItem as Item };

@@ -2,10 +2,9 @@
   "extends": "@repo/typescript-config/react-library.json",
   "include": [
     "./src/index.ts",
-    "./src/tailwind.ts",
     "./src/fx.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/src/**/*.ts",
+    "./src/src/**/*.tsx",
     "tsup.config.ts"
   ],
   "exclude": ["dist", "build", "node_modules"],

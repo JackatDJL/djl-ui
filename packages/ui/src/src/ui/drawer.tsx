@@ -29,7 +29,7 @@ const DrawerTrigger = React.forwardRef<
     <Button>{children}</Button>
   </DrawerPrimitive.Trigger>
 ));
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- Should be inferred by the import
+ 
 DrawerTrigger.displayName = DrawerPrimitive.Trigger.displayName;
 
 const DrawerPortal = DrawerPrimitive.Portal;
@@ -57,7 +57,7 @@ const DrawerOverlay = React.forwardRef<
     {...props}
   />
 ));
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- Should be inferred by the import
+ 
 DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
 
 const DrawerContent = React.forwardRef<
@@ -134,7 +134,7 @@ const DrawerTitle = React.forwardRef<
     {...props}
   />
 ));
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- Should be inferred by the import
+ 
 DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
 
 const DrawerDescription = React.forwardRef<
@@ -147,7 +147,7 @@ const DrawerDescription = React.forwardRef<
     {...props}
   />
 ));
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access -- Should be inferred by the import
+ 
 DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
 
 export {
