@@ -7,7 +7,7 @@ import { createNoise3D } from "simplex-noise";
 import { motion } from "framer-motion";
 
 interface VortexProps {
-  children?: any;
+  children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
   particleCount?: number;
@@ -45,9 +45,9 @@ export const Vortex = (props: VortexProps) => {
   let particleProps = new Float32Array(particlePropsLength);
   const center: [number, number] = [0, 0];
 
-  const HALF_PI: number = 0.5 * Math.PI;
+  const _HALF_PI: number = 0.5 * Math.PI;
   const TAU: number = 2 * Math.PI;
-  const TO_RAD: number = Math.PI / 180;
+  const _TO_RAD: number = Math.PI / 180;
   const rand = (n: number): number => n * Math.random();
   const randRange = (n: number): number => n - rand(2 * n);
   const fadeInOut = (t: number, m: number): number => {
@@ -59,8 +59,7 @@ export const Vortex = (props: VortexProps) => {
 
   const setup = () => {
     const canvas = canvasRef.current;
-    const container = containerRef.current;
-    if (canvas && container) {
+    if (canvas) {
       const ctx = canvas.getContext("2d");
 
       if (ctx) {
@@ -189,7 +188,7 @@ export const Vortex = (props: VortexProps) => {
 
   const resize = (
     canvas: HTMLCanvasElement,
-    ctx?: CanvasRenderingContext2D
+    _ctx?: CanvasRenderingContext2D
   ) => {
     const { innerWidth, innerHeight } = window;
 
@@ -236,7 +235,7 @@ export const Vortex = (props: VortexProps) => {
         resize(canvas, ctx);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- no deps
   }, []);
 
   return (

@@ -19,8 +19,11 @@ export const TextHoverEffect = ({
   className?: string;
   thick?: string;
   font?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Cant import types from framer-motion
   initial?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Cant import types from framer-motion
   animate?: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any -- Cant import types from framer-motion
   exit?: any;
 }) => {
   const svgRef = useRef<SVGSVGElement>(null);
@@ -29,7 +32,7 @@ export const TextHoverEffect = ({
   const [maskPosition, setMaskPosition] = useState({ cx: "50%", cy: "50%" });
 
   useEffect(() => {
-    if (svgRef.current && cursor.x !== null && cursor.y !== null) {
+    if (svgRef.current) {
       const svgRect = svgRef.current.getBoundingClientRect();
       const cxPercentage = ((cursor.x - svgRect.left) / svgRect.width) * 100;
       const cyPercentage = ((cursor.y - svgRect.top) / svgRect.height) * 100;
@@ -48,9 +51,15 @@ export const TextHoverEffect = ({
       height="100%"
       initial={initial}
       key="hoverfx"
-      onMouseEnter={() => { setHovered(true); }}
-      onMouseLeave={() => { setHovered(false); }}
-      onMouseMove={(e) => { setCursor({ x: e.clientX, y: e.clientY }); }}
+      onMouseEnter={() => {
+        setHovered(true);
+      }}
+      onMouseLeave={() => {
+        setHovered(false);
+      }}
+      onMouseMove={(e) => {
+        setCursor({ x: e.clientX, y: e.clientY });
+      }}
       ref={svgRef}
       viewBox="0 0 300 100"
       width="100%"
@@ -64,13 +73,15 @@ export const TextHoverEffect = ({
           id="textGradient"
           r="25%"
         >
-          {hovered ? <>
+          {hovered ? (
+            <>
               <stop offset="0%" stopColor="var(--yellow-500)" />
               <stop offset="25%" stopColor="var(--red-500)" />
               <stop offset="50%" stopColor="var(--blue-500)" />
               <stop offset="75%" stopColor="var(--cyan-500)" />
               <stop offset="100%" stopColor="var(--violet-500)" />
-            </> : null}
+            </>
+          ) : null}
         </linearGradient>
 
         <motion.radialGradient

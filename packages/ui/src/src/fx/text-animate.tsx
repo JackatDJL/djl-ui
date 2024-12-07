@@ -1,14 +1,9 @@
 "use client";
 
-import type { FC} from "react";
-import { useRef } from "react";
-import type {
-  HTMLMotionProps} from "framer-motion";
-import {
-  motion,
-  useAnimation,
-  useInView,
-} from "framer-motion";
+import type { FC } from "react";
+import { useEffect, useRef } from "react";
+import type { HTMLMotionProps } from "framer-motion";
+import { motion, useAnimation, useInView } from "framer-motion";
 import { cldText } from ">util/classnames";
 import { cn } from ">util/twm";
 
@@ -22,7 +17,7 @@ type AnimationType =
   | "whipInUp"
   | "calmInUp";
 
-interface Props extends HTMLMotionProps<"div"> {
+interface TextAnimateProps extends HTMLMotionProps<"div"> {
   text: string;
   type?: AnimationType;
   delay?: number;
@@ -201,62 +196,51 @@ const animationVariants = {
   },
 };
 
-const TextAnimate: FC<Props> = ({
+const TextAnimate: FC<TextAnimateProps> = ({
   text,
   type = "whipInUp",
   className,
   ...props
-}: Props) => {
-  //   const { ref, inView } = useInView({
-  //     threshold: 0.5,
-  //     triggerOnce: true,
-  //   });
-
+}: TextAnimateProps) => {
   const ref = useRef(null);
-   
-  const isInView = useInView(ref, { once: true });
+  const isInView = useInView(ref, { once: false }); // Changed to false to allow repeated animations
+  const ctrls = useAnimation();
+
+  useEffect(() => {
+    if (isInView) {
+      void ctrls.start("visible");
+    } else {
+      void ctrls.start("hidden");
+    }
+  }, [ctrls, isInView]);
 
   const letters = Array.from(text);
   const { container, child } = animationVariants[type];
 
-   
-  const ctrls = useAnimation();
-
-  //   useEffect(() => {
-  //     if (isInView) {
-  //       ctrls.start("visible");
-  //     }
-  //     if (!isInView) {
-  //       ctrls.start("hidden");
-  //     }
-  //   }, [ctrls, isInView]);
-
   if (type === "rollIn" || type === "whipIn") {
     return (
       <h2 className={cn([cldText, className])}>
-        {text.split(" ").map((word, index) => {
+        {text.split(" ").map((word, windex) => {
           return (
             <motion.span
-              animate="visible"
+              animate={ctrls}
               aria-hidden="true"
               className="inline-block mr-[0.25em] whitespace-nowrap"
               initial="hidden"
-              key={index}
+              key={word}
               ref={ref}
               transition={{
-                delayChildren: index * 0.13,
-                // delayChildren: index * 0.35,
+                delayChildren: windex * 0.13,
                 staggerChildren: 0.025,
-                // staggerChildren: 0.05,
               }}
               variants={container}
             >
-              {word.split("").map((character, index) => {
+              {word.split("").map((character, cindex) => {
                 return (
                   <motion.span
                     aria-hidden="true"
                     className="inline-block -mr-[0.01em]"
-                    key={index}
+                    key={character[cindex]}
                     variants={child}
                   >
                     {character}
@@ -272,16 +256,17 @@ const TextAnimate: FC<Props> = ({
 
   return (
     <motion.h2
-      animate="visible"
+      animate={ctrls}
       className={cn([cldText, className])}
       initial="hidden"
+      ref={ref}
       role="heading"
       style={{ display: "flex", overflow: "hidden" }}
       variants={container}
       {...props}
     >
-      {letters.map((letter, index) => (
-        <motion.span key={index} variants={child}>
+      {letters.map((letter, lindex) => (
+        <motion.span key={letter[lindex]} variants={child}>
           {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}

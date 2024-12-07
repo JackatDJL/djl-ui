@@ -3,8 +3,8 @@
   "include": [
     "./src/index.ts",
     "./src/fx.ts",
-    "./src/**/*.ts",
-    "./src/**/*.tsx",
+    "./src/src/**/*.ts",
+    "./src/src/**/*.tsx",
     "tsup.config.ts"
   ],
   "exclude": ["dist", "build", "node_modules"],
