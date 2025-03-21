@@ -90,7 +90,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "ldrs": "^1.0.2",
     "mini-svg-data-uri": "^1.4.4",
-    "next": "^15.0.3",
+    "next": "^15.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
